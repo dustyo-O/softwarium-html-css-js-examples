@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* вертикально центрируем "как текст" */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, sans-serif;
+
+            height: 100%;
+
+            background: #f5efe6;
+        }
+
+        .site-header {
+            font-size: 11px;
+            line-height: 24px;
+
+            height: 24px;
+
+            color: #8f9999;
+            background: #000;
+        }
+
+        .site-header li {
+            float: left;
+
+            padding: 0 9px;
+
+            list-style-type: none;
+
+            border-right: 1px #222 solid;
+        }
+
+        .site-header ul {
+            margin-left: 21px;
+        }
+
+        .modal-wrap {
+            /* ограничение в этом способе - нам нужны размеры контейнера для line-height.
+                В % вычислять будет от размера шрифта, что нам не подойдет  */
+            line-height: calc(100vh - 24px);
+
+            width: 100%;
+            height: calc(100% - 24px);
+
+            text-align: center; /* зато и по горизонтали можно сразу тут выровнять */
+        }
+
+        .modal {
+            line-height: normal; /* нужно отменить все свойства для текста, т.к. они наследуются */
+            display: inline-block;
+
+            vertical-align: middle;
+
+            text-align: initial; /* нужно отменить все свойства для текста, т.к. они наследуются */
+        }
+
+        .modal-body {
+            overflow: hidden;
+
+            width: 500px;
+
+            border-radius: 9px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,.5);
+        }
+
+        .modal-body header {
+            font-size: 22px;
+            font-weight: 700;
+
+            padding: 19px 31px 15px;
+
+            border-bottom: 1px #e5e5e5 solid;
+            background: #ffc;
+        }
+
+        .modal-body article {
+            padding: 24px 31px 33px;
+        }
+
+        .modal-body article a {
+            color: #1c5c76;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav>
+            <ul>
+                <li>
+                    Launchpad
+                </li>
+                <li>
+                    Basecamp 3
+                </li>
+                <li>
+                    Basecamp 2
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="modal-wrap">
+        <div class="modal">
+            <div class="modal-body">
+                <header>
+                    Ekaterina EkaterinaEkaterina Ekaterina Ekaterina
+                </header>
+                <article>
+                    Don't worry be happy!Don't worry be happy!Don't worry be happy!Don't worry be happy!
+                </article>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
