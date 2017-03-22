@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif;
+        }
+
+        article {
+            font: 0/0 a;
+        }
+
+        figure {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        figure img {
+            width: 50px;
+        }
+
+        .comment-wrap {
+            font-family: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif;
+            font-size: 12px;
+            line-height: normal;
+            display: inline-block;
+            width: calc(100% - 82px);
+            vertical-align: top;
+            border: 1px #dddddd solid;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: #333333;
+            margin: 0 16px;
+        }
+
+        .comment-wrap header {
+            background: #f7f7f7;
+            border-bottom: 1px #eeeeee solid;
+            font-size: 10px;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 15px;
+        }
+
+        .comment-wrap header:before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            z-index: 1;
+            transform: rotate(45deg);
+            background: #f7f7f7;
+            border-left: 1px #eeeeee solid;
+            border-bottom: 1px #eeeeee solid;
+            position: absolute;
+            margin-top: 5px;
+            margin-left: -21px;
+        }
+
+        .comment-wrap header .username {
+            font-weight: 700;
+        }
+
+        .comment-wrap header .toolbar {
+            float: right;
+        }
+
+        .comment-wrap main {
+            padding: 15px 15px 18px;
+        }
+
+        .comment-wrap main blockquote {
+            border-left: 4px #dddddd solid;
+            line-height: 22px;
+            padding-left: 15px;
+            margin-bottom: 21px;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+</head>
+<body>
+    <article>
+        <figure>
+            <img src="tadatuta.jpg"/>
+        </figure>
+        <div class="comment-wrap">
+            <header>
+                <span class="username">tadatuta</span> commented <time>15 minutes ago</time>
+                <div class="toolbar"><i class="fa fa-check"></i></div>
+            </header>
+            <main>
+                <blockquote>А как оно помогло?</blockquote>
+                <p>JS падал на счетчиках, в которых неправильно экранировались кавычки. Теперь экранируются правильно</p>
+            </main>
+        </div>
+    </article>
+</body>
+</html>
