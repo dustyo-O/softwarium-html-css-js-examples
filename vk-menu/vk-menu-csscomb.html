@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,Roboto,'Open Sans','Helvetica Neue',sans-serif;
+
+            background: #edeef0;
+        }
+
+        aside {
+            width: 221px;
+
+            border: 1px #e3e4e8 solid;
+            border-radius: 2px;
+            background: #fff;
+        }
+
+        aside nav li {
+            font-size: 12px;
+            line-height: 32px;
+
+            list-style-type: none;
+        }
+
+        aside nav li a {
+            display: block;
+
+            height: 32px;
+            padding: 0 21px;
+
+            text-decoration: none;
+
+            color: #1f559c;
+        }
+
+        aside nav li li a {
+            padding: 0 28px;
+
+            color: #656575;
+        }
+
+        aside nav li.active > a {
+            border-left: 2px solid #5c83b1;
+        }
+
+        aside nav li.active > a,
+        aside nav li a:hover {
+            background: #f0f2f5;
+        }
+
+        aside nav li.divider {
+            height: 1px;
+            margin: 0 21px;
+            padding: 0;
+
+            background: #e7e8ec;
+        }
+    </style>
+</head>
+<body>
+    <aside>
+        <nav>
+            <ul>
+                <li class="active"><a href="#">Новости</a>
+                    <ul>
+                        <li><a href="#">Фотографии</a></li>
+                        <li><a href="#">Видеозаписи</a></li>
+                        <li><a href="#">Друзья</a></li>
+                        <li><a href="#">Понравилось</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Рекомендации</a></li>
+                <li><a href="#">Поиск</a></li>
+                <li><a href="#">Статьи</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Обновления</a></li>
+                <li><a href="#">Комментарии</a></li>
+            </ul>
+        </nav>
+    </aside>
+</body>
+</html>
