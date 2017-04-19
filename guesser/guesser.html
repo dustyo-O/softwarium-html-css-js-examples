@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Guesser(maximum) {
+        this._maximum = maximum;
+    }
+
+    Guesser.prototype._guessedNumber = undefined;
+
+    Guesser.prototype._randomNumber = function(max) {
+        return Math.floor(Math.random() * max) + 1;
+    };
+
+    Guesser.prototype.start = function() {
+        this._guessedNumber = this._randomNumber(this._maximum);
+    };
+
+    Guesser.prototype.guess = function(value) {
+        if (this._guessedNumber === value) return true;
+        return this._guessedNumber > value ? 1 : -1;
+    };
+
+    function GuesserAttempts(maximum, maxAttempts) {
+        Guesser.call(this, maximum);
+
+        this._maxAttempts = maxAttempts;
+    }
+
+    GuesserAttempts.prototype = Object.create(Guesser.prototype);
+
+    GuesserAttempts.prototype.start = function() {
+        this._guessedNumber = this._randomNumber(this._maximum);
+
+        this._attempts = 0;
+    };
+
+    GuesserAttempts.prototype.guess = function(value) {
+        this._attempts++;
+        if (this._attempts > this._maxAttempts) return null;
+
+        return Guesser.prototype.guess.call(this, value);
+    };
+
+    var guesser = new GuesserAttempts(10, 2),
+        userGuess,
+        guessResult;
+
+    guesser.start();
+
+    while (true) {
+        userGuess = prompt('Попробуйте угадать число!');
+
+        if (userGuess === null) break;
+
+        userGuess = parseInt(userGuess);
+
+        guessResult = guesser.guess(userGuess);
+
+        if (guessResult === true) {
+            alert('Вы угадали! Загадываем новое число...');
+
+            guesser.start();
+        } else if (guessResult === null) {
+            alert('Попытки закончились... ;\'( Загадываем новое число');
+
+            guesser.start();
+        } else {
+            var message = 'Не угадали! Загаданное число ';
+
+            if (guessResult > 0) {
+                message = message + 'больше';
+            } else {
+                message = message + 'меньше';
+            }
+
+            alert(message);
+        }
+    }
+</script>
+</body>
+</html>
