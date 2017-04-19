@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var-ddd-qqq-rrrr-fggjfg varDddQqqRrrrFggjfg
+
+    function camelCaseConvert(string) {
+        return string.split('-').map(
+            function(item, number) {
+                return number === 0 ?
+                    item : item.slice(0, 1).toUpperCase() + item.slice(1);
+            }
+        ).join('');
+    }
+
+    console.log(camelCaseConvert('var-ddd-qqq-rrrr-fggjfg'));
+</script>
+</body>
+</html>
