@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Легендарус</h2>
+    <input type="text" id="legendarus"/>
+    <h3>Гладиаторы</h3>
+    <label>Сила:</label><input type="text" id="power0">
+    <label>Оружие</label><input type="text" id="weapon0">
+    <label>Жестокость</label><input type="text" id="cruelty0"><br/>
+    <label>Сила:</label><input type="text" id="power1">
+    <label>Оружие</label><input type="text" id="weapon1">
+    <label>Жестокость</label><input type="text" id="cruelty1"><br/>
+    <label>Сила:</label><input type="text" id="power2">
+    <label>Оружие</label><input type="text" id="weapon2">
+    <label>Жестокость</label><input type="text" id="cruelty2"><br/>
+    <label>Сила:</label><input type="text" id="power3">
+    <label>Оружие</label><input type="text" id="weapon3">
+    <label>Жестокость</label><input type="text" id="cruelty3"><br/>
+    <label>Сила:</label><input type="text" id="power4">
+    <label>Оружие</label><input type="text" id="weapon4">
+    <label>Жестокость</label><input type="text" id="cruelty4"><br/>
+    <button id="fight">Битва</button>
+<script>
+    function fight(legendarus) {
+        var legendarusWin = true;
+
+        for(var i = 0; i < 5; i++) {
+            var gladPower = parseInt(+document.getElementById('power' + i).value);
+
+            if (legendarus <= gladPower) {
+                legendarus = legendarus -
+                        parseInt(+document.getElementById('cruelty' + i).value);
+                legendarusWin = false;
+                break;
+            } else {
+                legendarus = legendarus +
+                    parseInt(+document.getElementById('weapon' + i).value);
+            }
+        }
+
+        return legendarusWin ? legendarusWin : legendarus;
+    }
+
+    function coliseus() {
+        var legendarus = parseInt(+document.getElementById('legendarus').value),
+            legendarusPowers = [legendarus];
+
+        while(true) {
+            var fightResult = fight(legendarus);
+            console.log(fightResult);
+            if (fightResult === true) {
+                alert('Победа!!!');
+                return;
+            } else {
+                console.log(legendarusPowers);
+                if (legendarusPowers.indexOf(fightResult) !== -1) {
+                    alert('Поражение!!!');
+                    return;
+                } else {
+                    legendarusPowers.push(fightResult);
+                    legendarus = fightResult;
+                }
+            }
+        }
+    }
+
+    document.getElementById('fight').onclick = coliseus;
+</script>
+</body>
+</html>
